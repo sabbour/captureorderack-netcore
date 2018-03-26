@@ -48,7 +48,7 @@ namespace OrderCaptureAPI.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogCritical(ex, ex.Message, order);
+                Console.WriteLine(ex);
                 return new JsonErrorResult(new { Error = ex.Message });
             }
         }
