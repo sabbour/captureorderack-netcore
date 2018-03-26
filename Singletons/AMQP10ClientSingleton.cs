@@ -38,11 +38,7 @@ namespace OrderCaptureAPI.Singetons
 
             var uri = new Uri(_amqpUrl);
             var _eventHubEntity = uri.PathAndQuery;
-
-            var rnd = new Random(DateTime.Now.Millisecond);
-            int partition = rnd.Next(3);
-            _amqpUrl += "/partitions/" + partition.ToString();
-
+            
             // Initialize the SenderLink singleton
             _amqpAddress = new Address(_amqpUrl);
             _amqpConnection = new Connection(_amqpAddress);
