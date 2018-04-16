@@ -96,7 +96,7 @@ namespace OrderCaptureAPI.Services
 
                 var rnd = new Random(DateTime.Now.Millisecond);
                 int partition = rnd.Next(11);
-                order.Product = $"product-{partition}";
+                order.Partition = $"partition-{partition}";
 
                 // Create an order id
                 var newOrderId = ObjectId.GenerateNewId();

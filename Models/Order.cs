@@ -37,6 +37,12 @@ namespace OrderCaptureAPI.Models
         public string Product {get;set;}
 
         /// <summary>
+        /// MongoDB Partition. Generated.
+        /// </summary>
+        [BsonElement("partition")]
+        public string Partition {get;set;}
+
+        /// <summary>
         /// Order total
         /// </summary>
         [BsonElement("total")]
