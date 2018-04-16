@@ -96,7 +96,7 @@ namespace OrderCaptureAPI.Services
 
                 var rnd = new Random(DateTime.Now.Millisecond);
                 int partition = rnd.Next(11);
-                order.Product = $"product-{partition}";
+                order.Partition = $"partition-{partition}";
 
                 // Create an order id
                 var newOrderId = ObjectId.GenerateNewId();
@@ -110,7 +110,7 @@ namespace OrderCaptureAPI.Services
                 {
                     _telemetryClient.TrackEvent($"CapureOrder: - Team Name {_teamName} - db {db}",new Dictionary<string,string> {
                         {"team", _teamName},
-                        {"challenge", "captureorder"},
+                        {"challenge", "1-captureorder"},
                         {"type", db}
                      });
                 });
@@ -187,7 +187,7 @@ namespace OrderCaptureAPI.Services
                 {
                     _telemetryClient.TrackEvent($"SendOrder: - Team Name {_teamName} - EventHub",new Dictionary<string,string> {
                         {"team", _teamName},
-                        {"challenge", "sendorder"},
+                        {"challenge", "2-sendorder"},
                         {"type", "eventhub"}
                      });
                 });
@@ -256,7 +256,7 @@ namespace OrderCaptureAPI.Services
                 {
                     _telemetryClient.TrackEvent($"SendOrder: - Team Name {_teamName} - RabbitMQ",new Dictionary<string,string> {
                         {"team", _teamName},
-                        {"challenge", "sendorder"},
+                        {"challenge", "2-sendorder"},
                         {"type", "rabbitmq"}
                      });
                 });
